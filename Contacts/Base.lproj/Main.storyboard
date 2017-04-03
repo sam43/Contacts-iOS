@@ -34,11 +34,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="139" id="iom-3e-Orq" customClass="ContactViewCell" customModule="Contacts" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="cell" rowHeight="139" id="iom-3e-Orq" customClass="ContactViewCell" customModule="Contacts" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="139"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iom-3e-Orq" id="VHa-dt-nMM">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="138"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+8801234567891" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6u-LV-Xn2">
@@ -60,6 +60,7 @@
                                 <connections>
                                     <outlet property="userName" destination="Dy3-DX-QCQ" id="Gwq-SD-9an"/>
                                     <outlet property="userNumber" destination="U6u-LV-Xn2" id="yec-bL-M6F"/>
+                                    <segue destination="O3d-LV-Ue5" kind="show" trigger="accessoryAction" id="LEi-NB-zMJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,12 +70,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="fY2-OZ-wpI">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="RLO-iK-2c9">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="RLO-iK-2c9"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ogu-lr-TmF">
                             <connections>
-                                <segue destination="zes-Jq-7M0" kind="show" id="e0P-m8-zfy"/>
+                                <segue destination="zes-Jq-7M0" kind="show" id="wia-aA-09T"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ogu-lr-TmF"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZ5-rm-ibB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,18 +85,52 @@
         <!--Edit Contact-->
         <scene sceneID="o5Y-Ji-Q9v">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWo-wE-LhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="Edit Contact" id="zes-Jq-7M0" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8do-16-KKc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="CPY-7n-j2C" kind="relationship" relationship="rootViewController" id="KCo-Dp-vYY"/>
+                        <segue destination="8Xi-Du-gEe" kind="show" id="sNM-yd-hXy"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xWo-wE-LhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112" y="304"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sPO-OF-eOb">
+            <objects>
+                <viewController id="8Xi-Du-gEe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XPk-Yc-iVK"/>
+                        <viewControllerLayoutGuide type="bottom" id="dUv-Fs-faW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="04m-Uu-wg5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pKh-gG-A6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875" y="302"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="odb-Hp-P8c">
+            <objects>
+                <navigationController id="O3d-LV-Ue5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RUn-UF-Fhd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CPY-7n-j2C" kind="relationship" relationship="rootViewController" id="qZW-jP-WP4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9P-HD-vF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111" y="-400"/>
         </scene>
         <!--EditContactController-->
         <scene sceneID="OJ9-n3-tDe">
@@ -184,11 +219,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit Contact" id="RQw-5A-Gqa">
                         <barButtonItem key="backBarButtonItem" title="Contacts" id="Cpm-8I-myN"/>
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Contacts" id="QMi-36-TO9">
-                            <connections>
-                                <segue destination="BFq-m5-rS4" kind="show" id="pei-U0-KnP"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jmf-nz-scH"/>
                     </navigationItem>
                     <connections>
@@ -198,10 +228,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfB-bf-VuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892" y="304"/>
+            <point key="canvasLocation" x="874" y="-401"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="pei-U0-KnP"/>
-    </inferredMetricsTieBreakers>
 </document>
