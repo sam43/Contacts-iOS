@@ -45,14 +45,14 @@
                                             <rect key="frame" x="86" y="79" width="223" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.0" green="0.4003427141335108" blue="0.65133176813471505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dy3-DX-QCQ">
                                             <rect key="frame" x="86" y="42" width="223" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="1" green="0.52769350319999997" blue="0.38517223919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -69,9 +69,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="fY2-OZ-wpI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="RLO-iK-2c9">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="RLO-iK-2c9">
                             <connections>
-                                <segue destination="zes-Jq-7M0" kind="show" id="5hY-cR-kew"/>
+                                <segue destination="zes-Jq-7M0" kind="show" id="e0P-m8-zfy"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ogu-lr-TmF"/>
@@ -80,24 +80,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZ5-rm-ibB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-687.20000000000005" y="-93.103448275862078"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="82a-vI-g4x">
-            <objects>
-                <viewController id="ECo-qG-LLT" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jaf-oZ-Bvw"/>
-                        <viewControllerLayoutGuide type="bottom" id="PUC-Ve-RoO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5zl-yb-w16">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g4J-bR-KV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="112" y="-430"/>
         </scene>
         <!--Edit Contact-->
         <scene sceneID="o5Y-Ji-Q9v">
@@ -176,14 +158,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="land phone no. ex. +880" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WbE-w5-sZh">
-                                                    <rect key="frame" x="113" y="54" width="254" height="30"/>
+                                                    <rect key="frame" x="109" y="75" width="254" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Land Phone :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-ct-fdT">
-                                                    <rect key="frame" x="15" y="59" width="96" height="21"/>
+                                                    <rect key="frame" x="11" y="80" width="96" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="1" green="0.52769350319999997" blue="0.38517223919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -202,12 +184,24 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit Contact" id="RQw-5A-Gqa">
                         <barButtonItem key="backBarButtonItem" title="Contacts" id="Cpm-8I-myN"/>
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Contacts" id="QMi-36-TO9">
+                            <connections>
+                                <segue destination="BFq-m5-rS4" kind="show" id="pei-U0-KnP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jmf-nz-scH"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameField" destination="0Q3-yY-VZ3" id="B1v-WE-R9k"/>
+                        <outlet property="numberField" destination="Knf-Iy-ebx" id="b5O-GM-ag4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfB-bf-VuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="892" y="304"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pei-U0-KnP"/>
+    </inferredMetricsTieBreakers>
 </document>
