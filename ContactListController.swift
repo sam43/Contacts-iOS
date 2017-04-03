@@ -9,6 +9,18 @@
 import UIKit
 
 class ContactListController: UITableViewController {
+    
+    var contactList:[ContactModel] = []
+    
+    //Done button action configs....
+    
+    
+    let contact1 = ContactModel(name: "Asif", phone: "+8801234567891")
+    let contact2 = ContactModel(name: "Mamun", phone: "+8801234567892")
+    let contact3 = ContactModel(name: "Zebin", phone: "+8801234567893")
+    let contact4 = ContactModel(name: "Rashed", phone: "+8801234567894")
+    let contact5 = ContactModel(name: "Sayem", phone: "+8801234567895")
+    let contact6 = ContactModel(name: "Rayhan", phone: "+8801234567896")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +29,18 @@ class ContactListController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        contactList.append(contact1)
+        contactList.append(contact2)
+        contactList.append(contact3)
+        contactList.append(contact4)
+        contactList.append(contact5)
+        contactList.append(contact6)
+        
+         self.navigationItem.leftBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +52,26 @@ class ContactListController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return contactList.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactViewCell
 
-        // Configure the cell...
-
+        let contactlist = contactList[indexPath.row]
+        
+        cell.userName.text = contactlist.name
+        cell.userNumber.text = contactlist.phone
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -55,7 +81,6 @@ class ContactListController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -65,14 +90,14 @@ class ContactListController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+ 
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
     }
-    */
+ 
 
     /*
     // Override to support conditional rearranging of the table view.
